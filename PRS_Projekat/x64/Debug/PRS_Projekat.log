@@ -1,0 +1,10 @@
+﻿  PRS_Projekat.cpp
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\PRS_Projekat.cpp(466,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\olcNoiseMaker.h(153,18): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\olcNoiseMaker.h(134,1): message : while compiling class template member function 'bool olcNoiseMaker<short>::Create(std::wstring,unsigned int,unsigned int,unsigned int,unsigned int)'
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\olcNoiseMaker.h(125,9): message : see reference to function template instantiation 'bool olcNoiseMaker<short>::Create(std::wstring,unsigned int,unsigned int,unsigned int,unsigned int)' being compiled
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\PRS_Projekat.cpp(553,59): message : see reference to class template instantiation 'olcNoiseMaker<short>' being compiled
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\olcNoiseMaker.h(60,1): warning C4312: 'type cast': conversion from 'DWORD' to 'olcNoiseMaker<short> *' of greater size
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\olcNoiseMaker.h(59,1): message : while compiling class template member function 'void olcNoiseMaker<short>::waveOutProcWrap(HWAVEOUT,UINT,DWORD,DWORD,DWORD)'
+C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\PRS_Projekat\olcNoiseMaker.h(164,4): message : see reference to function template instantiation 'void olcNoiseMaker<short>::waveOutProcWrap(HWAVEOUT,UINT,DWORD,DWORD,DWORD)' being compiled
+  PRS_Projekat.vcxproj -> C:\Users\adinj\OneDrive\Desktop\repos\PRS_Projekat\x64\Debug\PRS_Projekat.exe
