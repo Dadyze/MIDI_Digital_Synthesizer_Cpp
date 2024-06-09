@@ -16,8 +16,7 @@ using namespace std;
 
 vector<note> vecNotes;
 mutex muxNotes;
-instrument_bell instBell;
-instrument_harmonica instHarm;
+instrument_test instrument;
 
 
 
@@ -45,17 +44,14 @@ FTYPE MakeNoise(int nChannel, FTYPE dTime)
 	{
 		bool bNoteFinished = false;
 		FTYPE dSound = 0;
-		if (n.channel == 2)
-			dSound = instBell.sound(dTime, n, bNoteFinished);
 		if (n.channel == 1)
-			dSound = instHarm.sound(dTime, n, bNoteFinished) * 0.5;
+			dSound = instrument.sound(dTime, n, bNoteFinished) * 0.5;
 		dMixedOutput += dSound;
 
 		if (bNoteFinished && n.off > n.on)
 			n.active = false;
 	}
 
-	// Woah! Modern C++ Overload!!!
 	safe_remove<vector<note>>(vecNotes, [](note const& item) { return item.active; });
 
 
