@@ -13,10 +13,10 @@ struct instrument_test : public instrument_base
 {
 	instrument_test()
 	{
-		env.dAttackTime = 0.01;
+		env.dAttackTime = 0.05;
 		env.dDecayTime = 1.0;
-		env.dSustainAmplitude = 0.0;
-		env.dReleaseTime = 1.0;
+		env.dSustainAmplitude = 0.95;
+		env.dReleaseTime = 0.1;
 
 		dVolume = 1.0;
 	}
@@ -27,9 +27,9 @@ struct instrument_test : public instrument_base
 		if (dAmplitude <= 0.0) bNoteFinished = true;
 
 		FTYPE dSound =
-			+ 2.00 * osc(n.on - dTime, scale(n.id + 12),OSC_SINE, 5.0, 0.001)
-			+ 2.20 * osc(n.on - dTime, scale(n.id + 24)) + 
-			+ 1.25 * osc(n.on - dTime, scale(n.id + 36));
+			+ 1.00 * osc(n.on - dTime, scale(n.id), OSC_SQUARE, 5.0, 0.001)
+			+ 0.50 * osc(n.on - dTime ,scale(n.id + 12), OSC_SQUARE)
+			+ 0.05 * osc(n.on - dTime, scale(n.id + 24), OSC_NOISE);
 
 		return dAmplitude * dSound * dVolume;
 	}

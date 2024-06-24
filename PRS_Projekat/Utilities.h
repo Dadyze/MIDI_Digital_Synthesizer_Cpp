@@ -12,6 +12,9 @@ FTYPE hzToAV(const FTYPE dHertz)
 const int OSC_SINE = 0;
 const int OSC_SQUARE = 1;
 const int OSC_TRIANGLE = 2;
+const int OSC_SAW_ANA = 3;
+const int OSC_SAW_DIG = 4;
+const int OSC_NOISE = 5;
 FTYPE osc(const FTYPE dTime, const FTYPE dHertz, const int nType = OSC_SINE,
 	const FTYPE dLFOHertz = 0.0, const FTYPE dLFOAmplitude = 0.0, FTYPE dCustom = 50.0)
 {
@@ -29,10 +32,23 @@ FTYPE osc(const FTYPE dTime, const FTYPE dHertz, const int nType = OSC_SINE,
 	case OSC_TRIANGLE: // Triangle wave between -1 and +1
 		return asin(sin(dFreq)) * (2.0 / PI);
 
+	case OSC_SAW_ANA: // Saw wave (analogue / warm / slow)
+	{
+		FTYPE dOutput = 0.0;
+		for (FTYPE n = 1.0; n < dCustom; n++)
+			dOutput += (sin(n * dFreq)) / n;
+		return dOutput * (2.0 / PI);
+	}
+	case OSC_SAW_DIG:
+		return (2.0 / PI) * (dHertz * PI * fmod(dTime, 1.0 / dHertz) - (PI / 2.0));
+
+	case OSC_NOISE:
+		return 2.0 * ((FTYPE)rand() / (FTYPE)RAND_MAX) - 1.0;
+
 	default:
 		return 0.0;
 	}
-}
+};
 
 //////////////////////////////////////////////////////////////////////////////
 // Scale to Frequency conversion
